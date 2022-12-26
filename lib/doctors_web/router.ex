@@ -20,7 +20,8 @@ defmodule DoctorsWeb.Router do
   scope "/", DoctorsWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", SearchLive, :home
+
   end
 
   # Other scopes may use custom stacks.

@@ -58,8 +58,8 @@ config :doctors, DoctorsWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/doctors_web/(live|views)/.*(ex)$",
-      ~r"lib/doctors_web/templates/.*(eex)$"
+      # ~r"lib/play_ground_web/templates/.*(eex)$",
+      ~r"lib/play_ground_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 

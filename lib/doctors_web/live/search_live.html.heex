@@ -1,0 +1,129 @@
+<div class="flex justify-between mx-4 my-4 text-white font-semibold">
+  <div>
+    <a href="#" class="pb-2 no-underline hover:border-b-2 border-white">About</a>
+  </div>
+  <div>
+    <a href="#" class="pb-2 no-underline hover:border-b-2 border-white">Doctors</a>
+  </div>
+</div>
+
+<div class="flex flex-col max-w-screen-lg mx-auto mt-40">
+  <%!-- Search box --%>
+
+  <div class="flex flex-col justify-center items-center">
+    <svg
+      class="mb-6"
+      width="30"
+      height="30"
+      viewBox="0 0 134.92092 132.21793"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg"
+    >
+      <g transform="translate(-37.024317,-59.235806)">
+        <path
+          fill="#FFFFFF"
+          style="stroke-width:0.264583"
+          transform="translate(45.534396,64.723288)"
+          d="M 90.035999,125.37097 59.385096,98.30553 29.990533,126.73044 32.040623,85.891572 -8.5100785,80.632619 24.697246,56.772826 3.5259115,21.790108 42.884677,32.876301 57.035157,-5.4874822 72.907411,32.196569 111.7241,19.340431 92.157715,55.24548 126.41086,77.577923 86.139719,84.666736 Z"
+        />
+      </g>
+    </svg>
+
+    <h1 class="text-center text-6xl text-secondary font-extrabold ">
+      aussie <span class="font-light text-white">doctor</span>
+    </h1>
+  </div>
+</div>
+
+<div class="flex flex-col w-3/5 mx-auto mt-10">
+  <form id="search_form" phx-submit="search">
+    <div class="relative">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <svg
+          aria-hidden="true"
+          class="w-5 h-5 text-gray-500 dark:text-gray-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            clip-rule="evenodd"
+          >
+          </path>
+        </svg>
+      </div>
+      <input
+        type="search"
+        name="search_term"
+        autofocus={@autofocus}
+        id="voice-search"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder={@placeholder}
+        required
+        pattern={@pattern}
+      />
+      <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
+        <svg
+          aria-hidden="true"
+          class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
+            clip-rule="evenodd"
+          >
+          </path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex flex-col max-w-screen-lg mx-auto m-6">
+      <div>
+        <fieldset class="flex justify-center mt-4 mb-6">
+          <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+            <div class="flex items-center">
+              <input
+                id="postcode"
+                name="search"
+                type="radio"
+                value="postcode"
+                checked={@postcode_checked}
+                phx-change="option_changed"
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label for="postcode" class="ml-3 block text-base font-medium text-white">
+                By Postcode
+              </label>
+            </div>
+
+            <div class="flex items-center">
+              <input
+                id="name"
+                name="search"
+                type="radio"
+                value="name"
+                checked={@name_checked}
+                phx-change="option_changed"
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label for="name" class="ml-3 block text-base font-medium text-white">
+                By Doctor's Name
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button
+        type="submit"
+        class="uppercase inline-flex items-center justify-center rounded-full border-2 border-white bg-primary px-6 py-3 text-sm font-bold tracking-widest text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
