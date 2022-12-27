@@ -21,6 +21,7 @@ defmodule DoctorsWeb.Router do
     pipe_through :browser
 
     live "/", SearchLive, :home
+    live "/doctors", DoctorsLive, :show
 
   end
 

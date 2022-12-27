@@ -30,12 +30,12 @@
     </svg>
 
     <h1 class="text-center text-6xl text-secondary font-extrabold ">
-      aussie <span class="font-light text-white">doctor</span>
+      <span>aussie</span>   <span class="font-light text-white">doctor</span>
     </h1>
   </div>
 </div>
 
-<div class="flex flex-col w-3/5 mx-auto mt-10">
+<div class="flex flex-col max-w-4xl mx-auto mt-10 px-10">
   <form id="search_form" phx-submit="search">
     <div class="relative">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -64,27 +64,12 @@
         required
         pattern={@pattern}
       />
-      <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
-        <svg
-          aria-hidden="true"
-          class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
-            clip-rule="evenodd"
-          >
-          </path>
-        </svg>
-      </button>
+
     </div>
 
-    <div class="flex flex-col max-w-screen-lg mx-auto m-6">
+    <div class="flex flex-col max-w-screen-2xl mx-auto m-6">
       <div>
-        <fieldset class="flex justify-center mt-4 mb-6">
+        <fieldset class="flex flex-col items-center justify-between mt-4 mb-6">
           <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
             <div class="flex items-center">
               <input
@@ -98,6 +83,21 @@
               />
               <label for="postcode" class="ml-3 block text-base font-medium text-white">
                 By Postcode
+              </label>
+            </div>
+
+            <div class="flex items-center">
+              <input
+                id="suburb"
+                name="search"
+                type="radio"
+                value="suburb"
+                checked={@suburb_checked}
+                phx-change="option_changed"
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label for="postcode" class="ml-3 block text-base font-medium text-white">
+                By Suburb
               </label>
             </div>
 
@@ -118,12 +118,16 @@
           </div>
         </fieldset>
       </div>
+      <div class="flex justify-center max-w-2xl mx-auto">
       <button
         type="submit"
         class="uppercase inline-flex items-center justify-center rounded-full border-2 border-white bg-primary px-6 py-3 text-sm font-bold tracking-widest text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
       >
         Search
       </button>
+      </div>
     </div>
   </form>
 </div>
+
+
